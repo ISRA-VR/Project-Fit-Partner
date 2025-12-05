@@ -1,91 +1,90 @@
+<?php
+require_once __DIR__ . "/../../../app/controller/AuthController.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $auth = new AuthController();
+    $auth->register();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fit Partner - Registro</title>
-    <link rel="stylesheet" href="../../public/assets/css/auth.css">
-    <link rel="stylesheet" href="../../public/assets/css/escabezadoPie.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="app/Views/assets/img/logos/favi.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="app/Views/assets/css/registro.css">
 </head>
-
 <body>
 
-    <header class="header">
-        <div class="header-content">
-            <img src="../../public/assets/img/logos/letrasgym.png" alt="Fit Partner" class="header-logo">
-        </div>
-    </header>
+    <div class="login-container">
 
-    <div class="bg-animation"></div>
-    <div class="auth-container fadeIn">
-        <div class="card glass">
-            <img src="../../public/assets/img/logos/logogym.png" alt="Fit Partner" class="logo">
-            <h2>Crea tu cuenta</h2>
-            <p class="subtitle">Encuentra tu mejor versión</p>
+        <!-- MENSAJES -->
+        <?php if (isset($_GET['error'])): ?>
+            <div class="alert error">
+                <?= $_GET['error'] ?>
+            </div>
+        <?php endif; ?>
 
-            <form>
-                <div class="input-grid">
-                    <div class="input-box">
-                        <input type="text" required>
-                        <label>Nombre completo</label>
-                    </div>
+        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'registered'): ?>
+            <div class="alert success">
+                Registro exitoso. Ahora puedes iniciar sesión.
+            </div>
+        <?php endif; ?>
 
-                    <div class="input-box">
-                        <input type="number" required>
-                        <label>Edad</label>
-                    </div>
+        <img src="app/Views/assets/img/logos/logogym.png" alt="Fit Partner" class="logo">
 
-                    <div class="input-box">
-                        <input type="number" required>
-                        <label>Estatura (cm)</label>
-                    </div>
+        <h2>Crear cuenta</h2>
 
-                    <div class="input-box">
-                        <input type="number" required>
-                        <label>Peso (kg)</label>
-                    </div>
+        <form action="index.php?view=register" method="POST">
 
-                    <div class="input-box full">
-                        <input type="email" required>
-                        <label>Correo electrónico</label>
-                    </div>
+            <label>Nombre completo</label>
+            <input type="text" name="name" required>
 
-                    <div class="input-box">
-                        <input type="password" id="password" required>
-                        <label>Contraseña</label>
-                        <i class="bi bi-eye toggle-password" data-target="password"></i>
-                    </div>
+            <label>Edad</label>
+            <input type="number" name="age" maxlength="2" oninput="limitDigits(this,2)" required>
 
-                    <div class="input-box">
-                        <input type="password" id="confirm_password" required>
-                        <label>Confirmar contraseña</label>
-                        <i class="bi bi-eye toggle-password" data-target="confirm_password"></i>
-                    </div>
+            <label>Estatura (cm)</label>
+            <input type="number" name="height" maxlength="3" oninput="limitDigits(this,3)" required>
 
-                </div>
-                <div class="terms">
-                    <input type="checkbox" required>
-                    <span>Acepto los términos y condiciones</span>
-                </div>
-                <button class="btn">Crear cuenta</button>
-                <p class="switch">¿Ya tienes cuenta? <a href="login.php">Inicia sesión</a></p>
-            </form>
-        </div>
+            <label>Peso (kg)</label>
+            <input type="number" name="weight" maxlength="3" oninput="limitDigits(this,3)" required>
+
+            <label>Correo electrónico</label>
+            <input type="email" name="email" required>
+
+            <label>Contraseña</label>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <i class="bi bi-eye-slash toggle-pass" id="togglePassword"></i>
+            </div>
+
+            <p id="strength"></p>
+
+            <label>Repetir contraseña</label>
+            <div class="input-group">
+                <input type="password" id="password2" name="password2" required>
+                <i class="bi bi-eye-slash toggle-pass" id="togglePassword2"></i>
+            </div>
+
+            <label class="terms">
+                <input type="checkbox" name="terms" required> Acepto los términos y condiciones
+            </label>
+
+            <button type="submit" class="btn-register">Registrarme</button>
+
+            <p class="links">
+                <a href="index.php?view=login">¿Ya tienes cuenta? Inicia sesión</a>
+            </p>
+
+        </form>
     </div>
 
-    <footer class="footer">
-        <p class="footer-text">&copy; 2025 Fit Partner · Todos los derechos reservados</p>
+    <div class="footer">© 2025 Fit Partner - Todos los derechos reservados</div>
 
-        <div class="footer-socials">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-        </div>
-    </footer>
-
-    <script src="../../public/assets/js/script.js"></script>
+    <script src="app/Views/assets/js/registro.js"></script>
 
 </body>
 </html>

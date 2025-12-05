@@ -17,11 +17,8 @@ Ejemplos: - Database.php (clase para conexión con PDO) - migrations.sql
 📁 app/Models/ Modelos: interactúan con la base de datos. Ejemplos: -
 User.php - Product.php
 
-📁 app/public/ Carpeta accesible desde el navegador. Debe contener: -
-index.php (punto de entrada de la app) - assets/ (css, js, imágenes)
-
 📁 app/Views/ Vistas: contienen código HTML y muestran datos al usuario.
-Ejemplos: - home.php - login.php - header.php - footer.php
+Ejemplos: - home.php - login.php - header.php - footer.php - assets/ (css, js, imágenes)
 
 📁 docs/ Documentación del proyecto: - anotaciones.txt - manual.pdf -
 MVC.txt

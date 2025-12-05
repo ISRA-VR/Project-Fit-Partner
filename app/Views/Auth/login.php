@@ -1,62 +1,72 @@
+<?php
+require_once __DIR__ . "/../../../app/controller/AuthController.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $auth = new AuthController();
+    $auth->login();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fit Partner - Login</title>
-    <link rel="stylesheet" href="../../public/assets/css/auth.css">
-    <link rel="stylesheet" href="../../public/assets/css/escabezadoPie.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Fit Partner - Iniciar sesión</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="app/Views/assets/img/logos/favi.png" type="image/x-icon">
+    <link rel="stylesheet" href="app/Views/assets/css/login.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="header-content">
-            <img src="../../public/assets/img/logos/letrasgym.png" alt="Fit Partner" class="header-logo">
-        </div>
-    </header>
 
-    <div class="bg-animation"></div>
-    <div class="auth-container fadeIn">
-        <div class="card glass">
-            <img src="../../public/assets/img/logos/logogym.png" alt="Fit Partner" class="logo">
+    <div class="login-container">
 
-            <h2>Bienvenido usuario</h2>
-            <p class="subtitle">Entrena mejor, alcanza más.</p>
+        <?php if (isset($_GET['error'])): ?>
+            <div class="alert error">
+                <?= $_GET['error'] ?>
+            </div>
+        <?php endif; ?>
 
-            <form>
-                <div class="input-box">
-                    <input type="email" required>
-                    <label>Correo electrónico</label>
-                </div>
+        <?php if (isset($_GET['msg']) && $_GET['msg'] === 'registered'): ?>
+            <div class="alert success">
+                Cuenta creada correctamente. Inicia sesión.
+            </div>
+        <?php endif; ?>
 
-                <div class="input-box">
-                    <input type="password" id="password" required>
-                    <label>Contraseña</label>
-                    <i class="bi bi-eye toggle-password" data-target="password"></i>
-                </div>
+        <img src="app/Views/assets/img/logos/logogym.png" alt="Fit Partner">
 
-                <button class="btn"><span>Iniciar Sesión</span></button>
+        <h2>Iniciar Sesión</h2>
 
-                <p class="switch">¿Olvidaste tu contraseña? <a href="updatePass.php">Recuperala</a></p>
-                <p class="switch">¿No tienes cuenta? <a href="register.php">Regístrate</a></p>
-            </form>
-        </div>
+        <form action="index.php?view=login" method="POST">
+
+            <label>Correo electrónico</label>
+            <div class="input-group">
+                <input type="email" name="email" required>
+            </div>
+
+            <label>Contraseña</label>
+            <div class="input-group password-box">
+                <input type="password" id="password" name="password" required>
+                <i class="bi bi-eye-slash toggle-pass" id="togglePassword"></i>
+            </div>
+
+            <button type="submit" class="btn-login">Ingresar</button>
+
+            <p class="links">
+                <a href="index.php?view=recover">¿Olvidaste tu contraseña?</a><br>
+                <a href="index.php?view=register">Crear cuenta</a>
+            </p>
+
+        </form>
+
     </div>
 
-    <footer class="footer">
-        <p class="footer-text">&copy; 2025 Fit Partner · Todos los derechos reservados</p>
+    <div class="footer">© 2025 Fit Partner · Todos los derechos reservados</div>
 
-        <div class="footer-socials">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-        </div>
-    </footer>
-
-
-    <script src="../../public/assets/js/script.js"></script>
+    <script src="app/Views/assets/js/login.js"></script>
 
 </body>
 </html>
