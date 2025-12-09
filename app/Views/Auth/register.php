@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="app/Views/assets/css/registro.css">
 </head>
+
 <body>
 
     <div class="login-container">
@@ -36,28 +38,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <img src="app/Views/assets/img/logos/logogym.png" alt="Fit Partner" class="logo">
 
-        <h2>Crear cuenta</h2>
+        <h2>Crear cuenta
+            <p>Regístrate para comenzar tu viaje fitness</p>
+        </h2>
 
         <form action="index.php?view=register" method="POST">
 
             <label>Nombre completo</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" placeholder="Tu nombre" required>
 
-            <label>Edad</label>
-            <input type="number" name="age" maxlength="2" oninput="limitDigits(this,2)" required>
+            <div class="triple-fields">
 
-            <label>Estatura (cm)</label>
-            <input type="number" name="height" maxlength="3" oninput="limitDigits(this,3)" required>
+                <div class="field">
+                    <label>Edad</label>
+                    <input type="number" name="age" maxlength="2" oninput="limitDigits(this,2)" placeholder="30" required>
+                </div>
 
-            <label>Peso (kg)</label>
-            <input type="number" name="weight" maxlength="3" oninput="limitDigits(this,3)" required>
+                <div class="field">
+                    <label>Alt (cm)</label>
+                    <input type="number" name="height" maxlength="3" oninput="limitDigits(this,3)" placeholder="175" required>
+                </div>
+
+                <div class="field">
+                    <label>Peso (kg)</label>
+                    <input type="number" name="weight" maxlength="3" oninput="limitDigits(this,3)" placeholder="70" required>
+                </div>
+
+            </div>
+
 
             <label>Correo electrónico</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" placeholder="nombre@ejemplo.com" required>
 
             <label>Contraseña</label>
             <div class="input-group">
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Crea una contraseña segura" required>
                 <i class="bi bi-eye-slash toggle-pass" id="togglePassword"></i>
             </div>
 
@@ -65,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <label>Repetir contraseña</label>
             <div class="input-group">
-                <input type="password" id="password2" name="password2" required>
+                <input type="password" id="password2" name="password2" placeholder="Repite tu contraseña" required>
                 <i class="bi bi-eye-slash toggle-pass" id="togglePassword2"></i>
             </div>
 
@@ -75,9 +90,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <button type="submit" class="btn-register">Registrarme</button>
 
-            <p class="links">
-                <a href="index.php?view=login">¿Ya tienes cuenta? Inicia sesión</a>
-            </p>
+            <div class="links">
+                ¿Ya tienes cuenta?<a href="index.php?view=login"> INICIA SESIÓN</a>
+            </div>
 
         </form>
     </div>
@@ -87,4 +102,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="app/Views/assets/js/registro.js"></script>
 
 </body>
+
 </html>

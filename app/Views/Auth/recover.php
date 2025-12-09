@@ -19,7 +19,7 @@
 
         <form method="POST">
             <label>Ingresa tu correo</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" placeholder="nombre@ejemplo.com" required>
 
             <button>Enviar enlace de recuperación</button>
             <br>

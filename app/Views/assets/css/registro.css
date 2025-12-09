@@ -26,47 +26,69 @@ body {
 }
 
 .login-container {
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
     width: 100%;
-    max-width: 450px;
-    padding: 40px 30px;
+    max-width: 600px;
+    padding: 40px 35px;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     text-align: center;
-    position: relative;
+    color: white;
 }
 
-
 .logo {
-    max-width: 100px;
+    max-width: 200px;
     height: auto;
     margin-bottom: 15px;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
+.triple-fields {
+    display: flex;
+    gap: 20px; /* separación horizontal */
+    width: 100%;
+}
+
+.triple-fields .field {
+    flex: 1; /* cada campo toma el mismo espacio */
+}
+
+.triple-fields label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 
 /* --- Título --- */
 h2 {
-    color: #333;
+    color: #e0e0e0;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1.5rem;
 }
-
+p{
+    color: #e0e0e0;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+}
 label {
     display: block;
     text-align: left;
-    color: #555;
+    color: #cacaca;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 5px;
     margin-top: 15px; 
     margin-left: 5px;
 }
-
-label:first-of-type {
-    margin-top: 0;
+::placeholder{
+    color: #d1d1d1;
+    opacity: 1; 
 }
 
 input[type="text"],
@@ -75,18 +97,18 @@ input[type="password"],
 input[type="number"] {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid #eee;
+    border: 2px solid transparent;
     border-radius: 10px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    background-color: #f9f9f9;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.173);
 }
 
 input:focus {
     outline: none;
-    border-color: #ff4b1f;
     background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(255, 75, 31, 0.1);
+    background: rgba(255, 255, 255, 0.173);
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -106,13 +128,9 @@ input[type=number]::-webkit-inner-spin-button {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #888;
+    color: #ffffff;
     font-size: 1.2rem;
     transition: color 0.3s;
-}
-
-.toggle-pass:hover {
-    color: #ff4b1f;
 }
 
 #strength {
@@ -131,13 +149,13 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 20px 0;
     cursor: pointer;
     font-size: 0.9rem;
-    color: #555;
+    color: #cacaca;
 }
 
 .terms input[type="checkbox"] {
     width: auto;
     margin-right: 10px;
-    accent-color: #ff4b1f; 
+    accent-color: #0096e0; 
     width: 18px;
     height: 18px;
     cursor: pointer;
@@ -145,23 +163,22 @@ input[type=number]::-webkit-inner-spin-button {
 
 .btn-register {
     width: 100%;
-    padding: 14px;
-    background: linear-gradient(90deg, #ff4b1f, #ff9068);
-    border: none;
-    border-radius: 50px;
+    background: #00a8ff;
     color: white;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    border: none;
+    padding: 13px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 75, 31, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 168, 255, 0.4);
+    transition: 0.3s;
 }
 
 .btn-register:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 75, 31, 0.6);
+    box-shadow: 0 6px 20px #0096e0;
 }
 
 .btn-register:active {
@@ -169,20 +186,19 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .links {
-    margin-top: 20px;
-    font-size: 0.9rem;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .links a {
-    color: #2a5298;
     text-decoration: none;
+    color: #00a8ff;
     font-weight: 600;
-    transition: color 0.3s;
 }
 
 .links a:hover {
-    color: #ff4b1f;
-    text-decoration: underline;
+    color: #abe3ff;
+    text-decoration: none;
 }
 
 .alert {
