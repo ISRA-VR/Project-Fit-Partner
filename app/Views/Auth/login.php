@@ -38,7 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <img src="app/Views/assets/img/logos/logogym.png" alt="Fit Partner">
 
-        <h2>Iniciar Sesión</h2>
+        <h2>Bienvenido usuario<br>
+            <p>Inicia sesión para continuar</p>
+        </h2>
 
         <form action="index.php?view=login" method="POST">
 
@@ -54,11 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <button type="submit" class="btn-login">Ingresar</button>
-
-            <p class="links">
-                <a href="index.php?view=recover">¿Olvidaste tu contraseña?</a><br>
-                <a href="index.php?view=register">Crear cuenta</a>
-            </p>
+            <br><br>
+            <div class="links">
+                <p>¿Olvidaste tu contraseña? <a href="index.php?view=recover">Click aqui</a></p>
+                <p>¿No tienes una cuenta? <a href="index.php?view=register">Registrate</a></p>
+            </div>
 
         </form>
 
@@ -69,4 +71,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="app/Views/assets/js/login.js"></script>
 
 </body>
+
 </html>
