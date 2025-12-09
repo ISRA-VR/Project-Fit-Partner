@@ -12,7 +12,6 @@
 
 <body>
     <div class="login-container">
-        <!-- Tu código aquí -->
         <h2>Recuperar contraseña
             <p>Ingresa tu correo electrónico para recibir un enlace de recuperación</p>
         </h2>

@@ -22,8 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <div class="login-container">
-
-        <!-- MENSAJES -->
         <?php if (isset($_GET['error'])): ?>
             <div class="alert error">
                 <?= $_GET['error'] ?>

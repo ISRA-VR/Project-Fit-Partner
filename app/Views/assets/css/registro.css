@@ -45,12 +45,12 @@ body {
 }
 .triple-fields {
     display: flex;
-    gap: 20px; /* separación horizontal */
+    gap: 20px; 
     width: 100%;
 }
 
 .triple-fields .field {
-    flex: 1; /* cada campo toma el mismo espacio */
+    flex: 1;
 }
 
 .triple-fields label {
@@ -58,8 +58,6 @@ body {
     margin-bottom: 5px;
 }
 
-
-/* --- Título --- */
 h2 {
     color: #e0e0e0;
     font-weight: 700;
