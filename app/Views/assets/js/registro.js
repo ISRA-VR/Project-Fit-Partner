@@ -28,7 +28,7 @@ document.getElementById("password").addEventListener("input", function () {
         strengthText.textContent = "Contraseña fuerte ✔️";
         strengthText.style.color = "#2BD106";
     } else {
-        strengthText.textContent = "La contraseña debe tener 8 caracteres, mayúsculas, número y símbolo.";
+        strengthText.textContent = "Contraseña mínima de 8 caracteres con mayúscula, número y símbolo.";
         strengthText.style.color = "#D9D91E";
     }
 });

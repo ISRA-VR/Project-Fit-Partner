@@ -8,7 +8,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ff4b1f 100%);
+    background: linear-gradient(135deg, #091234 0%, #004367 50%, #00b4d8 100%);
     background-size: 200% 200%;
     animation: gradientMove 10s ease infinite;
     min-height: 100vh; 
@@ -20,9 +20,9 @@ body {
 }
 
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 .login-container {
@@ -133,7 +133,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 #strength {
     text-align: left;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     height: 15px;
     margin-bottom: 5px;
     margin-left: 5px;

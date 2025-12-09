@@ -8,24 +8,25 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ff4b1f 100%);
+    background: linear-gradient(135deg, #091234 0%, #004367 50%, #00b4d8 100%);
     background-size: 200% 200%;
     animation: gradientMove 10s ease infinite;
-    height: 100vh;
+    min-height: 100vh; 
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px; 
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 ::placeholder {
     color: #e0e0e0;
     opacity: 0.7;
-}
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 .login-container {
